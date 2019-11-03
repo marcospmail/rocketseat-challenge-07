@@ -22,6 +22,8 @@ export const BasketContainer = styled.TouchableOpacity`
   justify-content: flex-end;
 `;
 
+export const LogoWrapper = styled.TouchableOpacity``;
+
 export const Logo = styled.Image.attrs({
   source: logo,
 })`

@@ -8,6 +8,8 @@ import * as CartActions from '../../store/modules/cart/actions';
 
 import api from '../../services/api';
 
+import { formatPrice } from '../../util/format';
+
 import {
   Container,
   Product,
@@ -34,7 +36,7 @@ class Home extends Component {
 
     const data = response.data.map(product => ({
       ...product,
-      priceFormatted: product.price,
+      priceFormatted: formatPrice(product.price),
     }));
 
     this.setState({ products: data });
@@ -53,7 +55,7 @@ class Home extends Component {
       <Product>
         <ProductImage source={{ uri: item.image }} />
         <ProductTitle>{item.title}</ProductTitle>
-        <ProductPrice>{item.price}</ProductPrice>
+        <ProductPrice>{item.priceFormatted}</ProductPrice>
         <AddButton onPress={() => this.handleAddProduct(item.id)}>
           <ProductAmount>
             <Icon name="add-shopping-cart" color="#FFF" size={20} />
