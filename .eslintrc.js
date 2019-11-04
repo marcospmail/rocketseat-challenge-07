@@ -22,7 +22,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    'prettier'
+    'prettier',
+    'react-hooks'
   ],
   rules: {
     'react/state-in-constructor': 0,
@@ -31,6 +32,8 @@ module.exports = {
     'react/jsx-filename-extension': [
       'warn', { extensions: ['.jsx', '.js'] }
     ],
-    'no-param-reassign': 'off'
+    'no-param-reassign': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   },
 };

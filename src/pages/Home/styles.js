@@ -15,12 +15,7 @@ export const Product = styled.View`
   width: 220px;
 `;
 
-export const ProductImage = styled.Image.attrs({
-  source: {
-    uri:
-      'https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg',
-  },
-})`
+export const ProductImage = styled.Image`
   width: 200px;
   height: 200px;
 `;

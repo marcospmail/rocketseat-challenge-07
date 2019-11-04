@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -12,28 +12,20 @@ import {
   LogoWrapper,
 } from './styles';
 
-class Header extends Component {
-  state = {};
+export default function Header({ navigation }) {
+  const cartSize = useSelector(state => state.cart.length);
 
-  render() {
-    const { cartSize, navigation } = this.props;
-
-    return (
-      <Wrapper>
-        <Container>
-          <LogoWrapper onPress={() => navigation.navigate('Home')}>
-            <Logo />
-          </LogoWrapper>
-          <BasketContainer onPress={() => navigation.navigate('Cart')}>
-            <Icon name="shopping-basket" color="#FFF" size={24} />
-            <ItemCount>{cartSize}</ItemCount>
-          </BasketContainer>
-        </Container>
-      </Wrapper>
-    );
-  }
+  return (
+    <Wrapper>
+      <Container>
+        <LogoWrapper onPress={() => navigation.navigate('Home')}>
+          <Logo />
+        </LogoWrapper>
+        <BasketContainer onPress={() => navigation.navigate('Cart')}>
+          <Icon name="shopping-basket" color="#FFF" size={24} />
+          <ItemCount>{cartSize}</ItemCount>
+        </BasketContainer>
+      </Container>
+    </Wrapper>
+  );
 }
-
-export default connect(state => ({
-  cartSize: state.cart.length,
-}))(Header);
